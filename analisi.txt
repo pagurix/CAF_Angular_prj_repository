@@ -1,0 +1,22 @@
+Amministratore
+	tutto
+utente_base
+	Non accede al bkoffice
+
+
+Assistito
+
+Pagina Ricerca:
+	Paginazione
+	Filtro fulltex su vari campi
+	Azioni Centralizzate: Aggiungi Assistito -> vai in pagina inserimento
+	Azioni su rigo: 	Modifica -> vai in pagina modifica 
+			Nuova Pratica -> vai in pagina nuova pratica
+			Rimuovi Assistito -> 
+Pagina Inserimento:
+
+Pagina Dettaglio/Modifica:
+
+Pagina Nuova Pratica
+
+
