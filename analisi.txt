@@ -1,22 +1,25 @@
-Amministratore
-	tutto
-utente_base
-	Non accede al bkoffice
+Permessi
+	Amministratore
+		tutto
+	utente_base
+		Non accede al bkoffice
 
 
-Assistito
+Funzionalità Assistito
 
-Pagina Ricerca:
-	Paginazione
-	Filtro fulltex su vari campi
-	Azioni Centralizzate: Aggiungi Assistito -> vai in pagina inserimento
-	Azioni su rigo: 	Modifica -> vai in pagina modifica 
-			Nuova Pratica -> vai in pagina nuova pratica
-			Rimuovi Assistito -> 
-Pagina Inserimento:
+	1- Pagina Ricerca:
+			Paginazione
+			Filtro ricerca fulltex su vari campi
+			Azioni Centralizzate: Aggiungi Assistito -> vai in pagina inserimento
+			Azioni su rigo: 	
+				Modifica -> vai in pagina modifica 
+				Nuova Pratica -> vai in pagina nuova pratica
+				Rimuovi Assistito -> Rimozione logica. 
+										definire comportamento del reinserimento dello stesso cf
+	Pagina Inserimento:
 
-Pagina Dettaglio/Modifica:
+	Pagina Dettaglio/Modifica:
 
-Pagina Nuova Pratica
+	Pagina Nuova Pratica
 
 
