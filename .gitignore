@@ -1,0 +1,10 @@
+# FOLDERS
+node_modules/
+dist/
+
+# OPENSHIFT ENV VARIABLE FILE
+config.js
+
+# DEPLOY FOLDERS
+node_installation/
+/package-lock.json
