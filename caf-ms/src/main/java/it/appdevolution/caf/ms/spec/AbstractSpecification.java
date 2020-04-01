@@ -39,7 +39,7 @@ public abstract class AbstractSpecification {
 
     protected void selectOrder(Root<?> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
         this.initJoinTable(root);        
-        if (order != null && !order.isEmpty()) {
+        if (order != null && !order.isEmpty() && !order.get(0).isEmpty()) {
         	this.customOrder(root, query, criteriaBuilder, order);        
         } else {
             this.defaultOrder(root, query, criteriaBuilder);

@@ -1,4 +1,4 @@
-package it.appdevolution.caf.ms.util;
+package it.appdevolution.caf.ms.support;
 
 import java.util.Map;
 

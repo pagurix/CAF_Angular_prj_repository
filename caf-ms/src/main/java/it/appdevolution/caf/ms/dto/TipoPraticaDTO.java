@@ -20,8 +20,8 @@ public class TipoPraticaDTO {
 
 	private String descrizione;
 
-	private BigDecimal prezzo;
+	private BigDecimal costo;
 
-	private boolean abilitata;
+	private boolean visualizza;
 	
 }

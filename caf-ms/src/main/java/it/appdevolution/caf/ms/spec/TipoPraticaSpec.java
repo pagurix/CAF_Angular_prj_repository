@@ -15,7 +15,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
 import it.appdevolution.caf.ms.entity.TipoPratica;
-import it.appdevolution.caf.ms.util.MapUtils;
+import it.appdevolution.caf.ms.support.MapUtils;
 
 
 public class TipoPraticaSpec extends AbstractSpecification implements Specification<TipoPratica> {
@@ -32,40 +32,41 @@ public class TipoPraticaSpec extends AbstractSpecification implements Specificat
 
 	@Override
     protected void customOrder(Root<?> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, List<Map<String, String>> order) {
-
     	if (order != null && !order.isEmpty() ) {
     		List <Order> orderList = new ArrayList<Order>();
     		for (Map<String, String> orderElement : order) {
-    			switch (orderElement.get("column")) {
-        		case "descrizione":
-        			if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
-        				orderList.add(criteriaBuilder.asc(root.get("descrizione")));
-        			} else {
-        				orderList.add(criteriaBuilder.desc(root.get("descrizione")));
-        			}
-        			break;
-        		case "nome":
-        			if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
-        				orderList.add(criteriaBuilder.asc(root.get("nome")));
-        			} else {
-        				orderList.add(criteriaBuilder.desc(root.get("nome")));
-        			}
-        			break;
-                case "codice":
-                    if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
-                        orderList.add(criteriaBuilder.asc(root.get("codice")));
-                    } else {
-                        orderList.add(criteriaBuilder.desc(root.get("codice")));
-                    }
-                    break;
-    			default: 
-        			if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
-        				orderList.add(criteriaBuilder.asc(root.get("nome")));
-        			} else {
-        				orderList.add(criteriaBuilder.desc(root.get("nome")));
-        			}
-        			break;    				
-    			}
+    			if (!orderElement.isEmpty()) {
+    				switch (orderElement.get("column")) {
+    				case "descrizione":
+    					if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
+    						orderList.add(criteriaBuilder.asc(root.get("descrizione")));
+    					} else {
+    						orderList.add(criteriaBuilder.desc(root.get("descrizione")));
+    					}
+    					break;
+    				case "nome":
+    					if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
+    						orderList.add(criteriaBuilder.asc(root.get("nome")));
+    					} else {
+    						orderList.add(criteriaBuilder.desc(root.get("nome")));
+    					}
+    					break;
+    				case "codice":
+    					if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
+    						orderList.add(criteriaBuilder.asc(root.get("codice")));
+    					} else {
+    						orderList.add(criteriaBuilder.desc(root.get("codice")));
+    					}
+    					break;
+    				default: 
+    					if (orderElement.get("dir").equalsIgnoreCase((ASC))) {
+    						orderList.add(criteriaBuilder.asc(root.get("nome")));
+    					} else {
+    						orderList.add(criteriaBuilder.desc(root.get("nome")));
+    					}
+    					break;    				
+    				}					
+				}
     		}
     		query.orderBy(orderList);
 		} 
@@ -97,13 +98,13 @@ public class TipoPraticaSpec extends AbstractSpecification implements Specificat
 //                predicates.add(orP);
 //            }
 
-        	String fullTextNameSearch =  MapUtils.getValue(criteriaMap, "fullTextNameSearch");
-			fullTextNameSearch = fullTextNameSearch.toUpperCase();
-			String[] split = fullTextNameSearch.split(" ");
+        	String fullTextNomeSearch =  MapUtils.getValue(criteriaMap, "fullTextNomeSearch");
+			fullTextNomeSearch = fullTextNomeSearch.toUpperCase();
+			String[] split = fullTextNomeSearch.split(" ");
 			ArrayList<String> stringPart = new ArrayList<String>(Arrays.asList(split));
 			if (!stringPart.isEmpty()) {
 			  for (String string : stringPart) {
-				  Predicate p = criteriaBuilder.like(criteriaBuilder.upper(root.<String>get("name")), "%" + string + "%");
+				  Predicate p = criteriaBuilder.like(criteriaBuilder.upper(root.<String>get("nome")), "%" + string + "%");
 				  predicates.add(p);
 			  }
 			}
@@ -123,10 +124,10 @@ public class TipoPraticaSpec extends AbstractSpecification implements Specificat
                 Predicate p = criteriaBuilder.like(criteriaBuilder.upper(root.<String>get("descrizione")), "%" + descrizione.toUpperCase() + "%");
                 predicates.add(p);
         	}
-        	String abilitata = MapUtils.getValue(criteriaMap, "abilitata");
-        	if (!abilitata.isEmpty()) {
-        		if (abilitata.equalsIgnoreCase("true") || abilitata.equalsIgnoreCase("false")) {
-        			Predicate p = criteriaBuilder.equal(root.get("abilitata"), new Boolean(abilitata));
+        	String visualizza = MapUtils.getValue(criteriaMap, "visualizza");
+        	if (!visualizza.isEmpty()) {
+        		if (visualizza.equalsIgnoreCase("true") || visualizza.equalsIgnoreCase("false")) {
+        			Predicate p = criteriaBuilder.equal(root.get("visualizza"), new Boolean(visualizza));
         			predicates.add(p);
         		}         	
         	}

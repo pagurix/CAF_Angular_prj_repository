@@ -26,7 +26,7 @@ public class PraticaServiceImpl implements PraticaService {
 	public JsonReqRes search(JsonReqRes jsonReqRes) throws Exception {
 		if (jsonReqRes != null) {
 			TipoPraticaSpec spec = new TipoPraticaSpec(jsonReqRes.getSearchFilters(), jsonReqRes.getOrder());
-			int currentPage = (jsonReqRes.getCurrentPage() == null) ? 0 : jsonReqRes.getCurrentPage() - 1;
+			int currentPage = (jsonReqRes.getCurrentPage() == null || jsonReqRes.getCurrentPage() == 0) ? 0 : jsonReqRes.getCurrentPage() - 1;
 			int elementForPage = (jsonReqRes.getElementForPage() != null && jsonReqRes.getElementForPage() > 0) ? jsonReqRes.getElementForPage() : Constants.ELEMENT_FOR_PAGE_ALL;
 		
 			Page<TipoPratica> entityPage = dao.findAll(spec , PageRequest.of(currentPage, elementForPage));

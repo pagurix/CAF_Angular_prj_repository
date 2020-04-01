@@ -1,6 +1,5 @@
 package it.appdevolution.caf.ms.entity;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,8 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="TIPO_PRATICA")
-public class TipoPratica {
+@Table(name="NOTE")
+public class Note {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -36,18 +35,12 @@ public class TipoPratica {
 
 	@Column(name="DESCRIZIONE")
 	private String descrizione;
-	
-	@Column(name="costo")
-	private BigDecimal costo;
 
-	@Column(name="visualizza")
-	private boolean visualizza;
-	
 	@ManyToMany
 	@JoinTable(name = "tipo_pratica_x_note", 
-				joinColumns = @JoinColumn(name = "tipo_pratica_id"), 
-				inverseJoinColumns = @JoinColumn(name = "nota_id"))
-	private List<Note> note;
+				joinColumns = @JoinColumn(name = "nota_id"), 
+				inverseJoinColumns = @JoinColumn(name = "tipo_pratica_id"))	
+	private List<TipoPratica> tipiPratica;
 
 	
 }
