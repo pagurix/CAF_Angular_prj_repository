@@ -1,24 +1,27 @@
 package it.appdevolution.caf.ms.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.math.BigDecimal;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 @Data
 @NoArgsConstructor
-public class TabellaTestDTO {
+@AllArgsConstructor
+public class TipoPraticaDTO {
 	
 	private long id;
 
 	private String codice;
+	
+	private String nome;
 
 	private String descrizione;
 
-	@JsonProperty("descEstesa")
-	public String getDescEstesa() {
-		return this.codice +"_"+ this.descrizione;
-	}
+	private BigDecimal prezzo;
+
+	private boolean abilitata;
 	
 }

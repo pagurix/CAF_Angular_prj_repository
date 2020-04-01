@@ -1,9 +1,9 @@
 package it.appdevolution.caf.ms.support;
 
-import org.springframework.beans.BeanUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.BeanUtils;
 
 public class Converter {
 

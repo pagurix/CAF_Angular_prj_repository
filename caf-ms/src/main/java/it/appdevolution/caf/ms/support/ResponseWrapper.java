@@ -1,4 +1,4 @@
-package it.appdevolution.caf.ms.model;
+package it.appdevolution.caf.ms.support;
 
 import java.util.ArrayList;
 import java.util.List;

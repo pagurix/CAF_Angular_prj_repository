@@ -1,4 +1,4 @@
-package it.appdevolution.caf.ms.domain;
+package it.appdevolution.caf.ms.entity;
 
 import java.math.BigDecimal;
 
@@ -18,17 +18,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="TABELLA_TEST_2")
-public class TabellaTest2 {
+@Table(name="TIPO_PRATICA")
+public class TipoPratica {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SEQ_TABELLA_TEST_2")
-	@SequenceGenerator(name = "SEQ_TABELLA_TEST_2", sequenceName="SEQ_TABELLA_TEST_2", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SEQ_TIPO_PRATICA")
+	@SequenceGenerator(name = "SEQ_TIPO_PRATICA", sequenceName="SEQ_TIPO_PRATICA", allocationSize = 1)
 	@Column(name="ID")
 	private long id;
 
 	@Column(name="CODICE")
 	private String codice;
+
+	@Column(name="NOME")
+	private String nome;
 
 	@Column(name="DESCRIZIONE")
 	private String descrizione;
@@ -36,5 +39,8 @@ public class TabellaTest2 {
 	@Column(name="prezzo")
 	private BigDecimal prezzo;
 
-
+	@Column(name="abilitata")
+	private boolean abilitata;
+	
+	
 }
