@@ -43,6 +43,9 @@ public class TipoPratica {
 	@Column(name="visualizza")
 	private boolean visualizza;
 	
+	@Column(name="EVIDENZIATO")
+	private Boolean evidenziato;
+	
 	@ManyToMany
 	@JoinTable(name = "tipo_pratica_x_note", 
 				joinColumns = @JoinColumn(name = "tipo_pratica_id"), 

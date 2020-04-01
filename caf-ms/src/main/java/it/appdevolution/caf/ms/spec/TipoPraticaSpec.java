@@ -131,6 +131,14 @@ public class TipoPraticaSpec extends AbstractSpecification implements Specificat
         			predicates.add(p);
         		}         	
         	}
+        	String evidenziato = MapUtils.getValue(criteriaMap, "evidenziato");
+        	if (!evidenziato.isEmpty()) {
+        		if (evidenziato.equalsIgnoreCase("true") || evidenziato.equalsIgnoreCase("false")) {
+        			Predicate p = criteriaBuilder.equal(root.get("evidenziato"), new Boolean(evidenziato));
+        			predicates.add(p);
+        		}         	
+        	}
+
         	
 //            String dataInizioRecord = MapUtils.getValue(criteriaMap, "dataInizioRecord");
 //            Date dateInizioRecord;

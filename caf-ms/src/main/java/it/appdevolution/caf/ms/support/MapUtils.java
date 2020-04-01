@@ -13,6 +13,8 @@ public class MapUtils {
                     return value.toString();
                 } else if ((value instanceof Long || value instanceof Integer || value instanceof Double) && value != null) {
                     return value.toString();
+                } else if ((value instanceof Boolean) && value != null) {
+                    return ((Boolean) value).toString();                	
                 } else if (value instanceof Map) {
                     Map<String, Object> subMap = (Map<String, Object>) value;
                     return getValue(subMap, keySearch);
@@ -26,6 +28,8 @@ public class MapUtils {
                     return (String) value;
                 } else if ((value instanceof Long || value instanceof Integer || value instanceof Double) && value != null && key.equalsIgnoreCase(keySearch)) {
                     return value.toString();
+                } else if ((value instanceof Boolean) && value != null) {
+                    return ((Boolean) value).toString();
                 } else if (value instanceof Map) {
                     Map<String, Object> subMap = (Map<String, Object>) value;
                     return getValue(subMap, keySearch);

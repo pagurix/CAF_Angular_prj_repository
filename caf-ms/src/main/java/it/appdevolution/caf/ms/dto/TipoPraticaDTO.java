@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +21,8 @@ public class TipoPraticaDTO {
 
 	private BigDecimal costo;
 
-	private boolean visualizza;
+	private Boolean visualizza;
 	
+	private Boolean evidenziato;
+		
 }
