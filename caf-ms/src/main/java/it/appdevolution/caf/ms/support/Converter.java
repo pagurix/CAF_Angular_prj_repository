@@ -7,20 +7,20 @@ import org.springframework.beans.BeanUtils;
 
 public class Converter {
 
-	static public <I, O> O convert(I input, Class<O> o) throws Exception {
+	static public <I, O> O convert(I input, Class<O> o) {
 		O output = null;
 		if (input != null) {
 			try {
 				output = o.newInstance();
 			} catch (InstantiationException | IllegalAccessException e) {
-				throw new Exception(e);
+				//throw new Exception(e);
 			}		
 			BeanUtils.copyProperties(input, output);
 		}
 		return output;
 	}
 
-	static public <I, O> List<O> convert(List<I> inputList, Class<O> o) throws Exception {
+	static public <I, O> List<O> convert(List<I> inputList, Class<O> o) {
 		List<O> outputList = new ArrayList<O>();
 		if (inputList != null) {
 			for (I input : inputList) {
